@@ -1,0 +1,312 @@
+/* =========================================================
+   FRUTIGER AERO BLOG — style.css
+   Palette + tipografia + componenti "lucidi" anni 2005-2009
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- Palette Frutiger Aero --- */
+  --sky-top:    #bfe9ff;
+  --sky-bottom: #eaf7ff;
+  --aqua:       #17a9c4;
+  --aqua-dark:  #0b6f86;
+  --leaf:       #8bc34a;
+  --leaf-dark:  #5c9a2a;
+  --sun:        #ffd966;
+  --ink:        #14424d;     /* testo scuro ma non nero: più morbido */
+  --ink-soft:   #3c6b76;
+  --glass:      rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.65);
+
+  /* --- Tipografia --- */
+  --font-display: 'Fredoka', 'Trebuchet MS', 'Comic Sans MS', sans-serif;
+  --font-body:    'Quicksand', 'Verdana', 'Tahoma', sans-serif;
+
+  --radius: 20px;
+  --radius-pill: 999px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 20% -10%, #ffffff 0%, transparent 45%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 55%, #ffffff 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a { color: var(--aqua-dark); }
+a:hover { color: var(--leaf-dark); }
+
+img, .gif-frame img { max-width: 100%; display: block; }
+
+/* Scrollbar "lucida" (solo Chrome/Edge/Safari, degrada bene altrove) */
+::-webkit-scrollbar { width: 14px; }
+::-webkit-scrollbar-track { background: var(--sky-top); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fff, var(--aqua) 60%, var(--aqua-dark));
+  border-radius: var(--radius-pill);
+  border: 3px solid var(--sky-top);
+}
+
+::selection { background: var(--sun); color: var(--ink); }
+
+/* =========================================================
+   BOLLE DECORATIVE (sfondo, non interattive)
+   ========================================================= */
+.bubble {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.05) 60%, transparent 70%),
+              radial-gradient(circle at 65% 70%, var(--aqua) 0%, transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 9s ease-in-out infinite;
+}
+.bubble.b1 { width: 140px; height: 140px; top: 8%;  left: 4%;  animation-delay: 0s; }
+.bubble.b2 { width: 90px;  height: 90px;  top: 60%; left: 88%; animation-delay: 1.2s; }
+.bubble.b3 { width: 60px;  height: 60px;  top: 30%; left: 92%; animation-delay: 2.4s; }
+.bubble.b4 { width: 50px;  height: 50px;  top: 80%; left: 10%; animation-delay: 0.6s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%      { transform: translateY(-22px) scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+header.site-header {
+  text-align: center;
+  padding: 40px 20px 24px;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, var(--aqua) 55%, var(--aqua-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 3px 2px rgba(11, 111, 134, 0.35));
+  letter-spacing: 0.5px;
+}
+
+.site-tagline {
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* Nav a pillole lucide */
+nav.main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+/* =========================================================
+   BOTTONI GLOSSY
+   ========================================================= */
+.btn {
+  --btn-color: var(--aqua);
+  --btn-color-dark: var(--aqua-dark);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.35);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.6);
+  background: linear-gradient(180deg, #ffffff 0%, var(--btn-color) 50%, var(--btn-color-dark) 100%);
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.9),
+    inset 0 -6px 10px rgba(0,0,0,0.12),
+    0 4px 10px rgba(20,66,77,0.25);
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn::after {
+  /* riflesso lucido che scorre al passaggio del mouse */
+  content: "";
+  position: absolute;
+  top: -60%; left: -30%;
+  width: 40%; height: 220%;
+  background: rgba(255,255,255,0.55);
+  transform: rotate(20deg) translateX(-220%);
+  transition: transform 0.5s ease;
+}
+.btn:hover::after { transform: rotate(20deg) translateX(320%); }
+.btn:hover { transform: translateY(-2px); box-shadow: inset 0 1px 1px rgba(255,255,255,0.9), 0 8px 14px rgba(20,66,77,0.3); }
+.btn:active { transform: translateY(0); }
+
+.btn.leaf { --btn-color: var(--leaf); --btn-color-dark: var(--leaf-dark); }
+.btn.sun  { --btn-color: var(--sun);  --btn-color-dark: #d6a92c; color: var(--ink); text-shadow: 0 1px 0 rgba(255,255,255,0.5); }
+
+/* =========================================================
+   GLASS CARD (post, widget sidebar)
+   ========================================================= */
+.card {
+  background: linear-gradient(160deg, var(--glass-strong), var(--glass));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 26px rgba(20,66,77,0.15), inset 0 1px 0 rgba(255,255,255,0.7);
+  padding: 22px;
+}
+
+/* =========================================================
+   CONTENUTO PRINCIPALE
+   ========================================================= */
+.hero {
+  margin: 30px 0;
+  text-align: center;
+}
+.gif-frame {
+  display: inline-block;
+  padding: 6px;
+  background: linear-gradient(160deg, #fff, var(--aqua));
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(20,66,77,0.25);
+}
+.gif-frame img { border-radius: 10px; }
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+  .layout { grid-template-columns: 1fr; }
+}
+
+.posts { display: flex; flex-direction: column; gap: 22px; }
+
+.post h2 {
+  font-family: var(--font-display);
+  color: var(--aqua-dark);
+  margin: 0 0 4px;
+}
+.post .post-meta {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+.post .tags { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--sun);
+  color: var(--ink);
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.7);
+}
+
+/* Sidebar widgets */
+.sidebar { display: flex; flex-direction: column; gap: 20px; }
+.widget h3 {
+  font-family: var(--font-display);
+  margin-top: 0;
+  color: var(--aqua-dark);
+  border-bottom: 2px dashed var(--aqua);
+  padding-bottom: 6px;
+}
+
+.avatar {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 10px rgba(20,66,77,0.3);
+  object-fit: cover;
+}
+
+.counter {
+  font-family: 'Courier New', monospace;
+  background: var(--ink);
+  color: var(--leaf);
+  letter-spacing: 4px;
+  font-size: 1.4rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.6);
+}
+
+.badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.badge-88 {
+  width: 88px; height: 31px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; font-weight: 700; text-align: center;
+  color: #fff; text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  background: linear-gradient(180deg, var(--aqua), var(--aqua-dark));
+  border: 1px solid #fff;
+}
+
+.blogroll a {
+  display: block;
+  padding: 6px 0;
+  text-decoration: none;
+  font-weight: 600;
+}
+.blogroll a::before { content: "☁ "; }
+
+footer.site-footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 24px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+/* Bottone "torna su" */
+#back-to-top {
+  position: fixed;
+  right: 22px; bottom: 22px;
+  padding: 12px 16px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+#back-to-top.visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
