@@ -1,13 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <title>task 2 web app</title>
-  <style> body {background-color: lightblue;} </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>il mio angolino ☁ — blog</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>CIAO, THIS IS FEDERICO'S WEBSITE!</h1>
-  <p>This is my web application for Task 2 (cloud computing).</p>
-  <img src="https://media.tenor.com/Kye3l1VjbYQAAAAM/hello-kitty-jumping.gif">
+
+  <!-- Bolle decorative di sfondo -->
+  <div class="bubble b1"></div>
+  <div class="bubble b2"></div>
+  <div class="bubble b3"></div>
+  <div class="bubble b4"></div>
+
+  <div class="wrap">
+
+    <header class="site-header">
+      <h1 class="site-title">il mio angolino ☁</h1>
+      <p class="site-tagline">pensieri, gif e cose carine dal 2026 (con l'anima del 2006)</p>
+      <nav class="main-nav">
+        <a class="btn" href="#posts">Home</a>
+        <a class="btn leaf" href="#">Galleria</a>
+        <a class="btn sun" href="#">Guestbook</a>
+        <a class="btn" href="#">Chi sono</a>
+        <a class="btn leaf" id="random-post-btn" href="#">✨ Post a caso</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="gif-frame">
+        <!-- Sostituisci con una tua gif/immagine -->
+        <img src="https://placehold.co/480x270/17a9c4/ffffff?text=metti+qui+la+tua+gif" alt="gif di benvenuto">
+      </div>
+    </section>
+
+    <main class="layout">
+
+      <section class="posts" id="posts">
+
+        <article class="card post">
+          <h2>Benvenuti nel mio angolino di internet!</h2>
+          <p class="post-meta">25 settembre 2026 · di te</p>
+          <p>Ciao a tutti! Ho deciso di aprire questo blog perché i social ormai
+          sembrano tutti uguali, e mi mancava l'idea di avere un posto tutto mio,
+          fatto a modo mio — bolle, colori acquosi e gif comprese.</p>
+          <a class="btn" href="#">Leggi tutto</a>
+          <div class="tags"><span class="tag">intro</span><span class="tag">retro web</span></div>
+        </article>
+
+        <article class="card post">
+          <h2>La mia playlist del momento 🎧</h2>
+          <p class="post-meta">20 settembre 2026 · di te</p>
+          <p>Qui parlerò di cosa sto ascoltando, guardando o giocando in questo
+          periodo. Immagina una specie di "status MSN" ma un po' più lungo.</p>
+          <a class="btn" href="#">Leggi tutto</a>
+          <div class="tags"><span class="tag">musica</span><span class="tag">diario</span></div>
+        </article>
+
+        <article class="card post">
+          <h2>Guida: come mi sono costruita questo sito</h2>
+          <p class="post-meta">15 settembre 2026 · di te</p>
+          <p>Un post dietro le quinte su GitHub, Render e come tenere vivo lo
+          spirito dei primi siti web anche nel 2026.</p>
+          <a class="btn" href="#">Leggi tutto</a>
+          <div class="tags"><span class="tag">tutorial</span></div>
+        </article>
+
+      </section>
+
+      <aside class="sidebar">
+
+        <div class="card widget">
+          <h3>Chi sono</h3>
+          <img class="avatar" src="https://placehold.co/100x100/8bc34a/ffffff?text=io" alt="il mio avatar">
+          <p>Ciao! Metti qui due righe su di te, tipo si faceva nei blog di una volta.</p>
+        </div>
+
+        <div class="card widget">
+          <h3>Contatore visite</h3>
+          <span class="counter" id="visit-counter">000001</span>
+          <p style="font-size:0.8rem;">(contatore locale, solo per nostalgia — vedi note sotto)</p>
+        </div>
+
+        <div class="card widget">
+          <h3>Blogroll</h3>
+          <div class="blogroll">
+            <a href="#">il blog di un'amica</a>
+            <a href="#">un altro angolino carino</a>
+            <a href="#">webring dei sogni</a>
+          </div>
+        </div>
+
+        <div class="card widget">
+          <h3>Badge &amp; webring</h3>
+          <div class="badges">
+            <div class="badge-88">best viewed<br>in any browser</div>
+            <div class="badge-88">made with<br>♥ e css</div>
+          </div>
+        </div>
+
+      </aside>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 il mio angolino ☁ — fatto a mano, con gli occhi puntati al 2006.</p>
+    </footer>
+
+  </div>
+
+  <a href="#" class="btn" id="back-to-top">↑ su</a>
+
+  <script src="script.js"></script>
 </body>
 </html>
